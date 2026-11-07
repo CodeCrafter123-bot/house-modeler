@@ -1,0 +1,7 @@
+// SEMANTIC ERROR: floor 1 has a floor above it but no STAIR
+HOUSE {
+  FLOORS [
+    { HEIGHT = 4; ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; } ]; },
+    { HEIGHT = 3; ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = BACK; } ]; } ]; }
+  ];
+}

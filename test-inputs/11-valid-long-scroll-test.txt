@@ -1,0 +1,106 @@
+// Scroll test: a long 3-floor house, written one item per line
+HOUSE {
+  FLOORS [
+    // ===== Ground floor =====
+    {
+      HEIGHT = 5;
+      ROOMS [
+        // Living room
+        {
+          POSITION = (0,0),(6,5);
+          DOORS [
+            { WALL = FRONT; }
+          ];
+          WINDOWS [
+            { WALL = LEFT; }
+          ];
+        },
+        // Kitchen
+        {
+          POSITION = (6,0),(12,5);
+          DOORS [
+            { WALL = LEFT; }
+          ];
+          WINDOWS [
+            { WALL = RIGHT; },
+            { WALL = FRONT; }
+          ];
+        },
+        // Dining room
+        {
+          POSITION = (0,5),(12,10);
+          DOORS [
+            { WALL = FRONT; }
+          ];
+          WINDOWS [
+            { WALL = BACK; },
+            { WALL = LEFT; },
+            { WALL = RIGHT; }
+          ];
+        }
+      ];
+      STAIR {
+        POSITION = (1,1),(3,4);
+        DIRECTION = FRONT_BACK;
+      }
+    },
+    // ===== First floor =====
+    {
+      HEIGHT = 4;
+      ROOMS [
+        // Bedroom 1
+        {
+          POSITION = (0,0),(6,5);
+          DOORS [
+            { WALL = BACK; }
+          ];
+          WINDOWS [
+            { WALL = FRONT; },
+            { WALL = LEFT; }
+          ];
+        },
+        // Bedroom 2
+        {
+          POSITION = (6,0),(12,5);
+          DOORS [
+            { WALL = BACK; }
+          ];
+          WINDOWS [
+            { WALL = FRONT; },
+            { WALL = RIGHT; }
+          ];
+        },
+        // Hallway
+        {
+          POSITION = (0,5),(12,10);
+          DOORS [
+            { WALL = FRONT; }
+          ];
+          WINDOWS [
+            { WALL = BACK; }
+          ];
+        }
+      ];
+      STAIR {
+        POSITION = (9,6),(11,9);
+        DIRECTION = BACK_FRONT;
+      }
+    },
+    // ===== Attic =====
+    {
+      HEIGHT = 3;
+      ROOMS [
+        {
+          POSITION = (2,2),(10,8);
+          DOORS [
+            { WALL = FRONT; }
+          ];
+          WINDOWS [
+            { WALL = LEFT; },
+            { WALL = RIGHT; }
+          ];
+        }
+      ];
+    }
+  ];
+}

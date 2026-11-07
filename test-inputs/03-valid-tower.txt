@@ -1,0 +1,12 @@
+// Narrow 4-floor tower, each floor a single room
+HOUSE {
+  FLOORS [
+    { HEIGHT = 5; ROOMS [ { POSITION = (0,0),(5,5); DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = LEFT; }, { WALL = RIGHT; } ]; } ];
+      STAIR { POSITION = (1,1),(2,3); DIRECTION = FRONT_BACK; } },
+    { HEIGHT = 4; ROOMS [ { POSITION = (0,0),(5,5); DOORS [ { WALL = BACK; } ];  WINDOWS [ { WALL = FRONT; } ]; } ];
+      STAIR { POSITION = (3,2),(4,4); DIRECTION = BACK_FRONT; } },
+    { HEIGHT = 4; ROOMS [ { POSITION = (0,0),(5,5); DOORS [ { WALL = LEFT; } ];  WINDOWS [ { WALL = RIGHT; } ]; } ];
+      STAIR { POSITION = (1,2),(3,3); DIRECTION = LEFT_RIGHT; } },
+    { HEIGHT = 3; ROOMS [ { POSITION = (1,1),(4,4); DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = BACK; } ]; } ]; }
+  ];
+}

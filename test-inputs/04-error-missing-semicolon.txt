@@ -1,0 +1,9 @@
+// SYNTAX ERROR: the ';' after HEIGHT = 4 is missing (reported on the next line)
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 4
+      ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; } ];
+    }
+  ];
+}

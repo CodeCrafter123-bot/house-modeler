@@ -1,0 +1,10 @@
+// SYNTAX ERROR: ROOF is not a keyword of the language (shows a red squiggle in the editor)
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 3;
+      ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; } ];
+      ROOF { COLOR = 2; }
+    }
+  ];
+}

@@ -1,0 +1,19 @@
+$body = @"
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 4;
+      ROOMS [ { POSITION = (0,0),(2,2); DOORS [ { WALL = FRONT; } ]; } ];
+      STAIR { POSITION = (0,0),(1,1); DIRECTION = LEFT_RIGHT; }
+    },
+    {
+      HEIGHT = 3;
+      ROOMS [ { POSITION = (0,0),(2,2); DOORS [ { WALL = BACK; } ]; } ];
+      STAIR { POSITION = (0,0),(1,1); DIRECTION = LEFT_RIGHT; }
+    }
+  ];
+}
+"@
+
+Invoke-RestMethod -Method Post -Uri "http://localhost:18080/Compile" `
+  -ContentType "text/plain" -Body $body | ConvertTo-Json -Depth 20

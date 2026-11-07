@@ -1,0 +1,8 @@
+// SEMANTIC ERROR: floor 2 sticks out past the edge of floor 1
+HOUSE {
+  FLOORS [
+    { HEIGHT = 4; ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; } ];
+      STAIR { POSITION = (1,1),(2,3); DIRECTION = FRONT_BACK; } },
+    { HEIGHT = 3; ROOMS [ { POSITION = (0,0),(8,4); DOORS [ { WALL = BACK; } ]; } ]; }
+  ];
+}

@@ -1,0 +1,12 @@
+// Small one-floor cottage: two rooms side by side
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 3;
+      ROOMS [
+        { POSITION = (0,0),(5,4); DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = LEFT; }, { WALL = BACK; } ]; },
+        { POSITION = (5,0),(9,4); DOORS [ { WALL = LEFT; } ];  WINDOWS [ { WALL = RIGHT; } ]; }
+      ];
+    }
+  ];
+}

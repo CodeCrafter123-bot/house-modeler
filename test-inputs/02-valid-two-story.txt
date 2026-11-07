@@ -1,0 +1,22 @@
+// Two-story house with a stair in the living room
+HOUSE {
+  FLOORS [
+    // Ground floor
+    {
+      HEIGHT = 4;
+      ROOMS [
+        { POSITION = (0,0),(6,6);  DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = LEFT; } ]; },
+        { POSITION = (6,0),(10,6); DOORS [ { WALL = LEFT; } ];  WINDOWS [ { WALL = RIGHT; }, { WALL = FRONT; } ]; }
+      ];
+      STAIR { POSITION = (1,3),(3,5); DIRECTION = FRONT_BACK; }
+    },
+    // Upper floor
+    {
+      HEIGHT = 3;
+      ROOMS [
+        { POSITION = (0,0),(5,6);  DOORS [ { WALL = RIGHT; } ]; WINDOWS [ { WALL = LEFT; }, { WALL = BACK; } ]; },
+        { POSITION = (5,0),(10,6); DOORS [ { WALL = LEFT; } ];  WINDOWS [ { WALL = RIGHT; }, { WALL = FRONT; } ]; }
+      ];
+    }
+  ];
+}

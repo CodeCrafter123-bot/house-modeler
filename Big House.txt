@@ -1,0 +1,37 @@
+// Big house: 3 floors, 12 rooms, 12 x 10 footprint
+HOUSE {
+  FLOORS [
+    // ---------- Ground floor ----------
+    {
+      HEIGHT = 5;
+      ROOMS [
+        { POSITION = (0,0),(4,5);  DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = LEFT; } ]; },
+        { POSITION = (4,0),(8,5);  DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = BACK; } ]; },
+        { POSITION = (8,0),(12,5); DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = RIGHT; } ]; },
+        { POSITION = (0,5),(6,10); DOORS [ { WALL = RIGHT; } ]; WINDOWS [ { WALL = BACK; }, { WALL = LEFT; } ]; },
+        { POSITION = (6,5),(12,10); DOORS [ { WALL = LEFT; } ]; WINDOWS [ { WALL = BACK; }, { WALL = RIGHT; } ]; }
+      ];
+      STAIR { POSITION = (5,1),(7,3); DIRECTION = FRONT_BACK; }
+    },
+    // ---------- First floor ----------
+    {
+      HEIGHT = 4;
+      ROOMS [
+        { POSITION = (0,0),(4,5);  DOORS [ { WALL = RIGHT; } ]; WINDOWS [ { WALL = FRONT; }, { WALL = LEFT; } ]; },
+        { POSITION = (4,0),(8,5);  DOORS [ { WALL = BACK; } ]; WINDOWS [ { WALL = FRONT; } ]; },
+        { POSITION = (8,0),(12,5); DOORS [ { WALL = LEFT; } ]; WINDOWS [ { WALL = FRONT; }, { WALL = RIGHT; } ]; },
+        { POSITION = (0,5),(12,10); DOORS [ { WALL = FRONT; } ]; WINDOWS [ { WALL = BACK; }, { WALL = LEFT; }, { WALL = RIGHT; } ]; }
+      ];
+      STAIR { POSITION = (2,6),(4,8); DIRECTION = LEFT_RIGHT; }
+    },
+    // ---------- Top floor ----------
+    {
+      HEIGHT = 3;
+      ROOMS [
+        { POSITION = (0,5),(6,10);  DOORS [ { WALL = RIGHT; } ]; WINDOWS [ { WALL = BACK; }, { WALL = LEFT; } ]; },
+        { POSITION = (6,5),(12,10); DOORS [ { WALL = LEFT; } ]; WINDOWS [ { WALL = BACK; }, { WALL = RIGHT; } ]; },
+        { POSITION = (2,0),(10,5);  DOORS [ { WALL = BACK; } ]; WINDOWS [ { WALL = FRONT; }, { WALL = LEFT; }, { WALL = RIGHT; } ]; }
+      ];
+    }
+  ];
+}

@@ -1,0 +1,12 @@
+// SEMANTIC ERROR: the stair crosses the wall between the two rooms (x = 4)
+HOUSE {
+  FLOORS [
+    { HEIGHT = 4;
+      ROOMS [
+        { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; },
+        { POSITION = (4,0),(8,4); DOORS [ { WALL = FRONT; } ]; }
+      ];
+      STAIR { POSITION = (3,1),(5,2); DIRECTION = LEFT_RIGHT; } },
+    { HEIGHT = 3; ROOMS [ { POSITION = (0,0),(8,4); DOORS [ { WALL = BACK; } ]; } ]; }
+  ];
+}

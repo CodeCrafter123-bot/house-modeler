@@ -1,0 +1,12 @@
+// SEMANTIC ERROR: the two rooms share the area (3,0)-(4,4)
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 3;
+      ROOMS [
+        { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; },
+        { POSITION = (3,0),(7,4); DOORS [ { WALL = FRONT; } ]; }
+      ];
+    }
+  ];
+}

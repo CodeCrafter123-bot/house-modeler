@@ -1,0 +1,9 @@
+// SEMANTIC ERROR: floor height must be 3, 4 or 5
+HOUSE {
+  FLOORS [
+    {
+      HEIGHT = 8;
+      ROOMS [ { POSITION = (0,0),(4,4); DOORS [ { WALL = FRONT; } ]; } ];
+    }
+  ];
+}

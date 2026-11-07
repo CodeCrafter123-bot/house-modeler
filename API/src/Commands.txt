@@ -1,0 +1,5 @@
+bison -d -o parser.tab.c parser.y
+
+flex -o lex.yy.c lexer.l
+
+g++ -std=c++17 -O2 main.cpp ast_to_json.cpp ast_debug.cpp  semantic_analysis.cpp parser.tab.c lex.yy.c -I. -lws2_32 -lmswsock -o HouseModelerApi2.exe

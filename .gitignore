@@ -1,0 +1,13 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# AI assistant files (keep out of the repo)
+.claude/
+CLAUDE.md

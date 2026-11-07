@@ -1,0 +1,15 @@
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/Compile': {
+        target: 'http://localhost:18080',
+        changeOrigin: true,
+      },
+    },
+  },
+})
