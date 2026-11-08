@@ -7,10 +7,12 @@ import { useEffect, useRef, type KeyboardEvent } from 'react'
 
 // Token groups mirror API/src/lexer.l (the lexer is case-insensitive).
 const BLOCK_KEYWORDS = new Set(['HOUSE', 'FLOORS', 'ROOMS', 'DOORS', 'WINDOWS', 'STAIR'])
-const PROPERTIES = new Set(['POSITION', 'DIRECTION', 'HEIGHT', 'WALL'])
+const PROPERTIES = new Set(['POSITION', 'DIRECTION', 'HEIGHT', 'WALL', 'COLOR'])
 const VALUES = new Set([
   'FRONT', 'BACK', 'LEFT', 'RIGHT',
   'LEFT_RIGHT', 'FRONT_BACK', 'RIGHT_LEFT', 'BACK_FRONT',
+  'RED', 'BLUE', 'GREEN', 'YELLOW', 'ORANGE', 'PURPLE', 'PINK',
+  'BROWN', 'WHITE', 'BLACK', 'GRAY', 'GREY', 'BEIGE',
 ])
 
 const houseLanguage = StreamLanguage.define({
@@ -21,6 +23,7 @@ const houseLanguage = StreamLanguage.define({
       stream.skipToEnd()
       return 'comment'
     }
+    if (stream.match(/^#[0-9A-Fa-f]{6}/)) return 'atom'
     if (stream.match(/^[0-9]+/)) return 'number'
 
     const word = stream.match(/^[A-Za-z_]+/) as RegExpMatchArray | null
@@ -41,54 +44,47 @@ const houseLanguage = StreamLanguage.define({
 })
 
 const highlightStyle = HighlightStyle.define([
-  { tag: t.keyword, color: '#7dd3fc', fontWeight: '600' },
-  { tag: t.propertyName, color: '#c4b5fd' },
-  { tag: t.atom, color: '#fbbf24' },
-  { tag: t.number, color: '#86efac' },
-  { tag: t.comment, color: '#64748b', fontStyle: 'italic' },
-  { tag: t.bracket, color: '#94a3b8' },
-  { tag: t.operator, color: '#f472b6' },
-  { tag: t.punctuation, color: '#64748b' },
-  { tag: t.invalid, color: '#fca5a5', textDecoration: 'underline wavy #f87171' },
+  { tag: t.keyword, color: '#1f4e8c', fontWeight: '600' },
+  { tag: t.propertyName, color: '#7a3b8f' },
+  { tag: t.atom, color: '#a14a00' },
+  { tag: t.number, color: '#1c6b35' },
+  { tag: t.comment, color: '#8a8780', fontStyle: 'italic' },
+  { tag: t.bracket, color: '#55524c' },
+  { tag: t.operator, color: '#55524c' },
+  { tag: t.punctuation, color: '#8a8780' },
+  { tag: t.invalid, color: '#b42318', textDecoration: 'underline wavy #d92d20' },
 ])
 
-const editorTheme = EditorView.theme(
-  {
-    '&': {
-      height: '100%',
-      backgroundColor: '#0a1322',
-      color: '#e2e8f0',
-      fontSize: '13.5px',
-    },
-    '.cm-scroller': {
-      fontFamily: '"Cascadia Code", "Consolas", "Courier New", monospace',
-      lineHeight: '1.6',
-    },
-    '.cm-content': { caretColor: '#38bdf8', padding: '10px 0' },
-    '.cm-cursor': { borderLeftColor: '#38bdf8', borderLeftWidth: '2px' },
-    '&.cm-focused': { outline: 'none' },
-    '.cm-gutters': {
-      backgroundColor: '#0a1322',
-      color: '#475569',
-      border: 'none',
-      borderRight: '1px solid #1b2a44',
-    },
-    '.cm-activeLine': { backgroundColor: 'rgba(56, 189, 248, 0.06)' },
-    '.cm-activeLineGutter': { backgroundColor: 'rgba(56, 189, 248, 0.1)', color: '#94a3b8' },
-    '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection': {
-      backgroundColor: 'rgba(56, 189, 248, 0.25) !important',
-    },
-    '.cm-matchingBracket': {
-      backgroundColor: 'rgba(56, 189, 248, 0.2)',
-      outline: '1px solid rgba(56, 189, 248, 0.5)',
-    },
-    '.cm-foldPlaceholder': { backgroundColor: '#1b2a44', border: 'none', color: '#94a3b8' },
-    '.cm-placeholder': { color: '#475569' },
-    '.cm-lintRange-error': { backgroundColor: 'rgba(248, 113, 113, 0.15)' },
-    '.cm-tooltip': { backgroundColor: '#111c30', border: '1px solid #1e2d4a', color: '#e2e8f0' },
+const editorTheme = EditorView.theme({
+  '&': {
+    height: '100%',
+    backgroundColor: '#ffffff',
+    color: '#24221f',
+    fontSize: '13.5px',
   },
-  { dark: true },
-)
+  '.cm-scroller': {
+    fontFamily: '"Consolas", "Courier New", monospace',
+    lineHeight: '1.55',
+  },
+  '.cm-content': { caretColor: '#24221f', padding: '8px 0' },
+  '&.cm-focused': { outline: 'none' },
+  '.cm-gutters': {
+    backgroundColor: '#f4f3ef',
+    color: '#9a968e',
+    border: 'none',
+    borderRight: '1px solid #e2dfd8',
+  },
+  '.cm-activeLine': { backgroundColor: '#f8f6f1' },
+  '.cm-activeLineGutter': { backgroundColor: '#ebe8e1', color: '#55524c' },
+  '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection': {
+    backgroundColor: '#d7e3f4 !important',
+  },
+  '.cm-matchingBracket': { backgroundColor: '#e3ecd9', outline: 'none' },
+  '.cm-foldPlaceholder': { backgroundColor: '#ebe8e1', border: 'none', color: '#55524c' },
+  '.cm-placeholder': { color: '#b3afa6' },
+  '.cm-lintRange-error': { backgroundColor: '#fde8e6' },
+  '.cm-tooltip': { backgroundColor: '#ffffff', border: '1px solid #d9d5cc', color: '#24221f' },
+})
 
 const PLACEHOLDER = `HOUSE {
   FLOORS [

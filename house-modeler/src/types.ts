@@ -20,6 +20,8 @@ export type StairItem = {
 
 export type FloorItem = {
   HEIGHT: number
+  // Optional wall color: a name like "red" or a hex code like "#4a90d9".
+  COLOR?: string
   ROOMS: RoomItem[]
   STAIR: StairItem | null
 }

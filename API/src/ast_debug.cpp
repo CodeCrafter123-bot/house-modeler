@@ -26,6 +26,11 @@ void printFloor(FloorNode* f, int depth) {
 	printIndent(depth);
 	cout << "└── HEIGHT = " << f->height << endl;
 
+	if (!f->color.empty()) {
+		printIndent(depth);
+		cout << "    ├── COLOR = " << f->color << endl;
+	}
+
 	for (size_t i = 0; i < f->rooms.size(); i++) {
 		printIndent(depth);
 		cout << "    ├── ROOM" << endl;

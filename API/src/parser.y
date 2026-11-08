@@ -4,6 +4,7 @@
 #include <memory>
 #include "ast.h"
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,15 +21,17 @@ int yylex();
 /* ================= TYPE SYSTEM ================= */
 %union {
     int ival;
+    char* sval;
     void* node;
 }
 
 /* ================= TOKENS ================= */
 %token HOUSE FLOORS ROOMS DOORS WINDOWS STAIR
-%token POSITION DIRECTION HEIGHT WALL
+%token POSITION DIRECTION HEIGHT WALL COLOR
 %token LEFT_RIGHT FRONT_BACK RIGHT_LEFT BACK_FRONT
 %token FRONT BACK LEFT RIGHT
 %token <ival> NUMBER
+%token <sval> COLOR_VALUE
 
 %type <node> coord_pair position
 
@@ -65,9 +68,21 @@ floor:
             root->floors.push_back(unique_ptr<FloorNode>(f));
             currentFloor = f;
         }
+    color_opt
     rooms ';'
     stair_opt
     '}'
+;
+
+/* ================= COLOR (optional) ================= */
+
+color_opt:
+    COLOR '=' COLOR_VALUE ';'
+    {
+        currentFloor->color = $3;
+        free($3);
+    }
+    | /* empty */
 ;
 
 /* ================= ROOMS ================= */

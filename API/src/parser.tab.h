@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.7.1.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -64,15 +64,17 @@ extern int yydebug;
     DIRECTION = 265,               /* DIRECTION  */
     HEIGHT = 266,                  /* HEIGHT  */
     WALL = 267,                    /* WALL  */
-    LEFT_RIGHT = 268,              /* LEFT_RIGHT  */
-    FRONT_BACK = 269,              /* FRONT_BACK  */
-    RIGHT_LEFT = 270,              /* RIGHT_LEFT  */
-    BACK_FRONT = 271,              /* BACK_FRONT  */
-    FRONT = 272,                   /* FRONT  */
-    BACK = 273,                    /* BACK  */
-    LEFT = 274,                    /* LEFT  */
-    RIGHT = 275,                   /* RIGHT  */
-    NUMBER = 276                   /* NUMBER  */
+    COLOR = 268,                   /* COLOR  */
+    LEFT_RIGHT = 269,              /* LEFT_RIGHT  */
+    FRONT_BACK = 270,              /* FRONT_BACK  */
+    RIGHT_LEFT = 271,              /* RIGHT_LEFT  */
+    BACK_FRONT = 272,              /* BACK_FRONT  */
+    FRONT = 273,                   /* FRONT  */
+    BACK = 274,                    /* BACK  */
+    LEFT = 275,                    /* LEFT  */
+    RIGHT = 276,                   /* RIGHT  */
+    NUMBER = 277,                  /* NUMBER  */
+    COLOR_VALUE = 278              /* COLOR_VALUE  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -81,12 +83,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 21 "parser.y"
+#line 22 "parser.y"
 
     int ival;
+    char* sval;
     void* node;
 
-#line 90 "parser.tab.h"
+#line 93 "parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -97,6 +100,8 @@ typedef union YYSTYPE YYSTYPE;
 
 extern YYSTYPE yylval;
 
+
 int yyparse (void);
+
 
 #endif /* !YY_YY_PARSER_TAB_H_INCLUDED  */

@@ -40,6 +40,7 @@ struct StairNode : Node {
 
 struct FloorNode : Node {
     int height;
+    std::string color; // empty when the floor has no COLOR line
     std::vector<std::unique_ptr<RoomNode>> rooms;
     std::unique_ptr<StairNode> stair;
 };

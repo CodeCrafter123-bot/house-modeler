@@ -1,0 +1,7 @@
+// Error: MAGENTA is not a supported color name, so the parser rejects it.
+HOUSE {
+  FLOORS [
+    { HEIGHT = 3; COLOR = MAGENTA;
+      ROOMS [ { POSITION = (0,0),(5,4); DOORS [ { WALL = FRONT; } ]; } ]; }
+  ];
+}

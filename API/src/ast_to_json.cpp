@@ -17,6 +17,9 @@ json houseToJson(HouseNode* h) {
 
 		json floor = json::object();
 		floor["HEIGHT"] = f->height;
+		if (!f->color.empty()) {
+			floor["COLOR"] = f->color;
+		}
 		floor["ROOMS"] = json::array();
 
 		for (std::vector<std::unique_ptr<RoomNode>>::iterator rit = f->rooms.begin();

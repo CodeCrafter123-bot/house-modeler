@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.7.1.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -45,11 +45,11 @@
    define necessary library symbols; they are noted "INFRINGES ON
    USER NAME SPACE" below.  */
 
-/* Identify Bison output.  */
-#define YYBISON 1
+/* Identify Bison output, and Bison version.  */
+#define YYBISON 30802
 
-/* Bison version.  */
-#define YYBISON_VERSION "3.7.1"
+/* Bison version string.  */
+#define YYBISON_VERSION "3.8.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -74,6 +74,7 @@
 #include <memory>
 #include "ast.h"
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -86,7 +87,7 @@ RoomNode* currentRoom = nullptr;
 void yyerror(const char* s);
 int yylex();
 
-#line 90 "parser.tab.c"
+#line 91 "parser.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -127,49 +128,52 @@ enum yysymbol_kind_t
   YYSYMBOL_DIRECTION = 10,                 /* DIRECTION  */
   YYSYMBOL_HEIGHT = 11,                    /* HEIGHT  */
   YYSYMBOL_WALL = 12,                      /* WALL  */
-  YYSYMBOL_LEFT_RIGHT = 13,                /* LEFT_RIGHT  */
-  YYSYMBOL_FRONT_BACK = 14,                /* FRONT_BACK  */
-  YYSYMBOL_RIGHT_LEFT = 15,                /* RIGHT_LEFT  */
-  YYSYMBOL_BACK_FRONT = 16,                /* BACK_FRONT  */
-  YYSYMBOL_FRONT = 17,                     /* FRONT  */
-  YYSYMBOL_BACK = 18,                      /* BACK  */
-  YYSYMBOL_LEFT = 19,                      /* LEFT  */
-  YYSYMBOL_RIGHT = 20,                     /* RIGHT  */
-  YYSYMBOL_NUMBER = 21,                    /* NUMBER  */
-  YYSYMBOL_22_ = 22,                       /* '{'  */
-  YYSYMBOL_23_ = 23,                       /* ';'  */
-  YYSYMBOL_24_ = 24,                       /* '}'  */
-  YYSYMBOL_25_ = 25,                       /* '['  */
-  YYSYMBOL_26_ = 26,                       /* ']'  */
-  YYSYMBOL_27_ = 27,                       /* ','  */
-  YYSYMBOL_28_ = 28,                       /* '='  */
-  YYSYMBOL_29_ = 29,                       /* '('  */
-  YYSYMBOL_30_ = 30,                       /* ')'  */
-  YYSYMBOL_YYACCEPT = 31,                  /* $accept  */
-  YYSYMBOL_program = 32,                   /* program  */
-  YYSYMBOL_33_1 = 33,                      /* $@1  */
-  YYSYMBOL_floors = 34,                    /* floors  */
-  YYSYMBOL_floor_list = 35,                /* floor_list  */
-  YYSYMBOL_floor = 36,                     /* floor  */
-  YYSYMBOL_37_2 = 37,                      /* $@2  */
-  YYSYMBOL_rooms = 38,                     /* rooms  */
-  YYSYMBOL_room_list = 39,                 /* room_list  */
-  YYSYMBOL_room = 40,                      /* room  */
-  YYSYMBOL_41_3 = 41,                      /* $@3  */
-  YYSYMBOL_42_4 = 42,                      /* $@4  */
-  YYSYMBOL_position = 43,                  /* position  */
-  YYSYMBOL_coord_pair = 44,                /* coord_pair  */
-  YYSYMBOL_doors = 45,                     /* doors  */
-  YYSYMBOL_door_list = 46,                 /* door_list  */
-  YYSYMBOL_door = 47,                      /* door  */
-  YYSYMBOL_windows_opt = 48,               /* windows_opt  */
-  YYSYMBOL_windows = 49,                   /* windows  */
-  YYSYMBOL_window_list = 50,               /* window_list  */
-  YYSYMBOL_window = 51,                    /* window  */
-  YYSYMBOL_wall = 52,                      /* wall  */
-  YYSYMBOL_wall_values = 53,               /* wall_values  */
-  YYSYMBOL_stair_opt = 54,                 /* stair_opt  */
-  YYSYMBOL_direction = 55                  /* direction  */
+  YYSYMBOL_COLOR = 13,                     /* COLOR  */
+  YYSYMBOL_LEFT_RIGHT = 14,                /* LEFT_RIGHT  */
+  YYSYMBOL_FRONT_BACK = 15,                /* FRONT_BACK  */
+  YYSYMBOL_RIGHT_LEFT = 16,                /* RIGHT_LEFT  */
+  YYSYMBOL_BACK_FRONT = 17,                /* BACK_FRONT  */
+  YYSYMBOL_FRONT = 18,                     /* FRONT  */
+  YYSYMBOL_BACK = 19,                      /* BACK  */
+  YYSYMBOL_LEFT = 20,                      /* LEFT  */
+  YYSYMBOL_RIGHT = 21,                     /* RIGHT  */
+  YYSYMBOL_NUMBER = 22,                    /* NUMBER  */
+  YYSYMBOL_COLOR_VALUE = 23,               /* COLOR_VALUE  */
+  YYSYMBOL_24_ = 24,                       /* '{'  */
+  YYSYMBOL_25_ = 25,                       /* ';'  */
+  YYSYMBOL_26_ = 26,                       /* '}'  */
+  YYSYMBOL_27_ = 27,                       /* '['  */
+  YYSYMBOL_28_ = 28,                       /* ']'  */
+  YYSYMBOL_29_ = 29,                       /* ','  */
+  YYSYMBOL_30_ = 30,                       /* '='  */
+  YYSYMBOL_31_ = 31,                       /* '('  */
+  YYSYMBOL_32_ = 32,                       /* ')'  */
+  YYSYMBOL_YYACCEPT = 33,                  /* $accept  */
+  YYSYMBOL_program = 34,                   /* program  */
+  YYSYMBOL_35_1 = 35,                      /* $@1  */
+  YYSYMBOL_floors = 36,                    /* floors  */
+  YYSYMBOL_floor_list = 37,                /* floor_list  */
+  YYSYMBOL_floor = 38,                     /* floor  */
+  YYSYMBOL_39_2 = 39,                      /* $@2  */
+  YYSYMBOL_color_opt = 40,                 /* color_opt  */
+  YYSYMBOL_rooms = 41,                     /* rooms  */
+  YYSYMBOL_room_list = 42,                 /* room_list  */
+  YYSYMBOL_room = 43,                      /* room  */
+  YYSYMBOL_44_3 = 44,                      /* $@3  */
+  YYSYMBOL_45_4 = 45,                      /* $@4  */
+  YYSYMBOL_position = 46,                  /* position  */
+  YYSYMBOL_coord_pair = 47,                /* coord_pair  */
+  YYSYMBOL_doors = 48,                     /* doors  */
+  YYSYMBOL_door_list = 49,                 /* door_list  */
+  YYSYMBOL_door = 50,                      /* door  */
+  YYSYMBOL_windows_opt = 51,               /* windows_opt  */
+  YYSYMBOL_windows = 52,                   /* windows  */
+  YYSYMBOL_window_list = 53,               /* window_list  */
+  YYSYMBOL_window = 54,                    /* window  */
+  YYSYMBOL_wall = 55,                      /* wall  */
+  YYSYMBOL_wall_values = 56,               /* wall_values  */
+  YYSYMBOL_stair_opt = 57,                 /* stair_opt  */
+  YYSYMBOL_direction = 58                  /* direction  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -211,6 +215,18 @@ typedef __INT_LEAST16_TYPE__ yytype_int16;
 typedef int_least16_t yytype_int16;
 #else
 typedef short yytype_int16;
+#endif
+
+/* Work around bug in HP-UX 11.23, which defines these macros
+   incorrectly for preprocessor constants.  This workaround can likely
+   be removed in 2023, as HPE has promised support for HP-UX 11.23
+   (aka HP-UX 11i v2) only through the end of 2022; see Table 2 of
+   <https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-7673ENW.pdf>.  */
+#ifdef __hpux
+# undef UINT_LEAST8_MAX
+# undef UINT_LEAST16_MAX
+# define UINT_LEAST8_MAX 255
+# define UINT_LEAST16_MAX 65535
 #endif
 
 #if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
@@ -310,17 +326,23 @@ typedef int yy_state_fast_t;
 
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
-# define YYUSE(E) ((void) (E))
+# define YY_USE(E) ((void) (E))
 #else
-# define YYUSE(E) /* empty */
+# define YY_USE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
+#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
+# if __GNUC__ * 100 + __GNUC_MINOR__ < 407
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")
+# else
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
     _Pragma ("GCC diagnostic push")                                     \
     _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# endif
 # define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
     _Pragma ("GCC diagnostic pop")
 #else
@@ -479,19 +501,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   81
+#define YYLAST   95
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  31
+#define YYNTOKENS  33
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  25
+#define YYNNTS  26
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  37
+#define YYNRULES  39
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  96
+#define YYNSTATES  101
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   276
+#define YYMAXUTOK   278
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -509,15 +531,15 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      29,    30,     2,     2,    27,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    23,
-       2,    28,     2,     2,     2,     2,     2,     2,     2,     2,
+      31,    32,     2,     2,    29,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    25,
+       2,    30,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,    25,     2,    26,     2,     2,     2,     2,     2,     2,
+       2,    27,     2,    28,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    22,     2,    24,     2,     2,     2,     2,
+       2,     2,     2,    24,     2,    26,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -532,17 +554,17 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21
+      15,    16,    17,    18,    19,    20,    21,    22,    23
 };
 
 #if YYDEBUG
-  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+/* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    41,    41,    40,    51,    55,    56,    62,    60,    76,
-      80,    81,    86,    92,    85,   104,   116,   128,   132,   133,
-     137,   149,   150,   154,   158,   159,   163,   175,   179,   180,
-     181,   182,   188,   196,   201,   202,   203,   204
+       0,    44,    44,    43,    54,    58,    59,    65,    63,    80,
+      85,    91,    95,    96,   101,   107,   100,   119,   131,   143,
+     147,   148,   152,   164,   165,   169,   173,   174,   178,   190,
+     194,   195,   196,   197,   203,   211,   216,   217,   218,   219
 };
 #endif
 
@@ -560,13 +582,13 @@ static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "HOUSE", "FLOORS",
   "ROOMS", "DOORS", "WINDOWS", "STAIR", "POSITION", "DIRECTION", "HEIGHT",
-  "WALL", "LEFT_RIGHT", "FRONT_BACK", "RIGHT_LEFT", "BACK_FRONT", "FRONT",
-  "BACK", "LEFT", "RIGHT", "NUMBER", "'{'", "';'", "'}'", "'['", "']'",
-  "','", "'='", "'('", "')'", "$accept", "program", "$@1", "floors",
-  "floor_list", "floor", "$@2", "rooms", "room_list", "room", "$@3", "$@4",
-  "position", "coord_pair", "doors", "door_list", "door", "windows_opt",
-  "windows", "window_list", "window", "wall", "wall_values", "stair_opt",
-  "direction", YY_NULLPTR
+  "WALL", "COLOR", "LEFT_RIGHT", "FRONT_BACK", "RIGHT_LEFT", "BACK_FRONT",
+  "FRONT", "BACK", "LEFT", "RIGHT", "NUMBER", "COLOR_VALUE", "'{'", "';'",
+  "'}'", "'['", "']'", "','", "'='", "'('", "')'", "$accept", "program",
+  "$@1", "floors", "floor_list", "floor", "$@2", "color_opt", "rooms",
+  "room_list", "room", "$@3", "$@4", "position", "coord_pair", "doors",
+  "door_list", "door", "windows_opt", "windows", "window_list", "window",
+  "wall", "wall_values", "stair_opt", "direction", YY_NULLPTR
 };
 
 static const char *
@@ -576,19 +598,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#ifdef YYPRINT
-/* YYTOKNUM[NUM] -- (External) token number corresponding to the
-   (internal) symbol number NUM (which must be that of a token).  */
-static const yytype_int16 yytoknum[] =
-{
-       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   123,    59,   125,    91,    93,    44,    61,    40,
-      41
-};
-#endif
-
-#define YYPACT_NINF (-49)
+#define YYPACT_NINF (-52)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -598,116 +608,121 @@ static const yytype_int16 yytoknum[] =
 #define yytable_value_is_error(Yyn) \
   0
 
-  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
-     STATE-NUM.  */
+/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+   STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       1,   -11,     9,   -49,   -49,     6,   -10,    -9,    -6,    -7,
-       2,   -14,    -8,   -49,    -5,   -49,    -6,    -3,   -49,    -2,
-     -49,    15,    -1,     3,     0,    17,   -49,     4,     5,     7,
-      10,    18,   -49,     0,    18,   -49,     8,    12,   -49,    14,
-      11,   -49,    21,    20,    16,    22,    19,    23,    24,    11,
-      13,    25,   -13,    26,    28,   -49,    30,    32,   -49,   -49,
-     -49,   -49,   -49,    27,    33,    29,    31,    34,    36,    38,
-     -49,    35,    39,   -49,    30,    42,   -49,   -49,   -12,    41,
-     -49,    33,    40,    43,   -49,   -49,   -49,   -49,   -49,   -49,
-      44,   -49,    42,    45,   -49,   -49
+       1,   -15,    10,   -52,   -52,     7,   -12,   -11,    -8,    -9,
+       2,   -16,   -10,   -52,    -7,   -52,    -8,    -4,   -52,    -5,
+     -52,     8,    -6,    17,     3,    -2,     4,     5,     9,    19,
+     -52,   -52,     0,     6,    12,    11,    22,   -52,     9,    22,
+     -52,    13,    14,   -52,    15,    16,   -52,    24,    20,    21,
+      26,    18,    27,    25,    16,    28,    31,   -14,    23,    29,
+     -52,    33,    34,   -52,   -52,   -52,   -52,   -52,    30,    32,
+      35,    36,    37,    40,    42,   -52,    38,    44,   -52,    33,
+      46,   -52,   -52,   -13,    45,   -52,    32,    47,    43,   -52,
+     -52,   -52,   -52,   -52,   -52,    48,   -52,    46,    50,   -52,
+     -52
 };
 
-  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
-     Performed when YYTABLE does not specify something else to do.  Zero
-     means the default is an error.  */
+/* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+   Performed when YYTABLE does not specify something else to do.  Zero
+   means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     2,     1,     0,     0,     0,     0,     0,
        0,     0,     5,     3,     0,     4,     0,     0,     6,     0,
-       7,     0,     0,     0,     0,    33,    12,     0,    10,     0,
-       0,     0,     9,     0,     0,     8,     0,     0,    11,     0,
-       0,    13,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,    15,     0,    22,    34,    35,
-      36,    37,    32,     0,     0,     0,    18,     0,     0,     0,
-      16,     0,     0,    17,     0,     0,    14,    21,     0,     0,
-      19,     0,     0,    24,    28,    29,    30,    31,    27,    20,
-       0,    23,     0,     0,    25,    26
+       7,    10,     0,     0,     0,     0,     0,     0,     0,    35,
+       9,    14,     0,    12,     0,     0,     0,    11,     0,     0,
+       8,     0,     0,    13,     0,     0,    15,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      17,     0,    24,    36,    37,    38,    39,    34,     0,     0,
+       0,    20,     0,     0,     0,    18,     0,     0,    19,     0,
+       0,    16,    23,     0,     0,    21,     0,     0,    26,    30,
+      31,    32,    33,    29,    22,     0,    25,     0,     0,    27,
+      28
 };
 
-  /* YYPGOTO[NTERM-NUM].  */
+/* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -49,   -49,   -49,   -49,    37,   -49,   -49,   -49,    46,   -49,
-     -49,   -49,    47,   -16,   -49,   -32,   -49,   -49,   -49,   -48,
-     -49,   -27,   -49,   -49,   -49
+     -52,   -52,   -52,   -52,    58,   -52,   -52,   -52,   -52,    39,
+     -52,   -52,   -52,    -1,    41,   -52,   -34,   -52,   -52,   -52,
+     -51,   -52,   -33,   -52,   -52,   -52
 };
 
-  /* YYDEFGOTO[NTERM-NUM].  */
+/* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     5,     7,    11,    12,    21,    23,    27,    28,
-      31,    45,    37,    44,    51,    65,    66,    68,    69,    82,
-      83,    72,    88,    30,    47
+       0,     2,     5,     7,    11,    12,    21,    23,    26,    32,
+      33,    36,    50,    42,    49,    56,    70,    71,    73,    74,
+      87,    88,    77,    93,    35,    52
 };
 
-  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
-     positive, shift that token.  If negative, reduce the rule whose
-     number is the opposite.  If YYTABLE_NINF, syntax error.  */
+/* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+   positive, shift that token.  If negative, reduce the rule whose
+   number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      58,    59,    60,    61,     1,    84,    85,    86,    87,     4,
-       6,     3,    15,    14,     9,     8,    10,    13,    19,    16,
-      22,    20,    26,    17,    24,    29,    25,    36,    50,    34,
-      32,    46,    33,    55,    35,    41,    40,    42,    56,    67,
-      43,    48,    80,    49,    94,    71,    53,    52,    57,    63,
-      62,    54,    64,    18,    90,    73,     0,    70,    74,    75,
-      76,    77,    79,    78,    81,    89,    91,    93,     0,    95,
-      92,     0,     0,     0,     0,     0,     0,     0,     0,    38,
-       0,    39
+      63,    64,    65,    66,     1,    89,    90,    91,    92,     3,
+       4,     6,    15,    14,     9,     8,    10,    13,    19,    16,
+      20,    22,    25,    17,    24,    28,    27,    34,    37,    29,
+      30,    41,    55,    31,    51,    38,    39,    40,    44,    46,
+      47,    72,    53,    45,    76,    85,    99,    48,    57,    67,
+      54,    68,    58,    95,    59,    61,    62,    69,     0,     0,
+       0,     0,    75,    78,    80,    79,    81,    82,    83,    84,
+      86,    94,    97,    98,    18,    96,   100,    43,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,    60
 };
 
 static const yytype_int8 yycheck[] =
 {
-      13,    14,    15,    16,     3,    17,    18,    19,    20,     0,
-       4,    22,    26,    11,    23,    25,    22,    24,    21,    27,
-       5,    23,    22,    28,    25,     8,    23,     9,     6,    22,
-      26,    10,    27,    49,    24,    23,    28,    23,    25,     7,
-      29,    21,    74,    27,    92,    12,    23,    28,    23,    21,
-      24,    27,    22,    16,    81,    26,    -1,    30,    27,    25,
-      24,    23,    23,    28,    22,    24,    26,    23,    -1,    24,
-      27,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    33,
-      -1,    34
+      14,    15,    16,    17,     3,    18,    19,    20,    21,    24,
+       0,     4,    28,    11,    25,    27,    24,    26,    22,    29,
+      25,    13,     5,    30,    30,    27,    23,     8,    28,    25,
+      25,     9,     6,    24,    10,    29,    24,    26,    39,    25,
+      25,     7,    22,    30,    12,    79,    97,    31,    30,    26,
+      29,    22,    25,    86,    29,    27,    25,    24,    -1,    -1,
+      -1,    -1,    32,    28,    27,    29,    26,    25,    30,    25,
+      24,    26,    29,    25,    16,    28,    26,    38,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    54
 };
 
-  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
-     symbol of state STATE-NUM.  */
+/* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
+   state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,    32,    22,     0,    33,     4,    34,    25,    23,
-      22,    35,    36,    24,    11,    26,    27,    28,    35,    21,
-      23,    37,     5,    38,    25,    23,    22,    39,    40,     8,
-      54,    41,    26,    27,    22,    24,     9,    43,    39,    43,
-      28,    23,    23,    29,    44,    42,    10,    55,    21,    27,
-       6,    45,    28,    23,    27,    44,    25,    23,    13,    14,
-      15,    16,    24,    21,    22,    46,    47,     7,    48,    49,
-      30,    12,    52,    26,    27,    25,    24,    23,    28,    23,
-      46,    22,    50,    51,    17,    18,    19,    20,    53,    24,
-      52,    26,    27,    23,    50,    24
+       0,     3,    34,    24,     0,    35,     4,    36,    27,    25,
+      24,    37,    38,    26,    11,    28,    29,    30,    37,    22,
+      25,    39,    13,    40,    30,     5,    41,    23,    27,    25,
+      25,    24,    42,    43,     8,    57,    44,    28,    29,    24,
+      26,     9,    46,    42,    46,    30,    25,    25,    31,    47,
+      45,    10,    58,    22,    29,     6,    48,    30,    25,    29,
+      47,    27,    25,    14,    15,    16,    17,    26,    22,    24,
+      49,    50,     7,    51,    52,    32,    12,    55,    28,    29,
+      27,    26,    25,    30,    25,    49,    24,    53,    54,    18,
+      19,    20,    21,    56,    26,    55,    28,    29,    25,    53,
+      26
 };
 
-  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
+/* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    31,    33,    32,    34,    35,    35,    37,    36,    38,
-      39,    39,    41,    42,    40,    43,    44,    45,    46,    46,
-      47,    48,    48,    49,    50,    50,    51,    52,    53,    53,
-      53,    53,    54,    54,    55,    55,    55,    55
+       0,    33,    35,    34,    36,    37,    37,    39,    38,    40,
+      40,    41,    42,    42,    44,    45,    43,    46,    47,    48,
+      49,    49,    50,    51,    51,    52,    53,    53,    54,    55,
+      56,    56,    56,    56,    57,    57,    58,    58,    58,    58
 };
 
-  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
+/* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     0,     6,     4,     1,     3,     0,    10,     4,
-       1,     3,     0,     0,     9,     5,     5,     4,     1,     3,
-       4,     2,     0,     4,     1,     3,     4,     3,     1,     1,
-       1,     1,     7,     0,     3,     3,     3,     3
+       0,     2,     0,     6,     4,     1,     3,     0,    11,     4,
+       0,     4,     1,     3,     0,     0,     9,     5,     5,     4,
+       1,     3,     4,     2,     0,     4,     1,     3,     4,     3,
+       1,     1,     1,     1,     7,     0,     3,     3,     3,     3
 };
 
 
@@ -719,6 +734,7 @@ enum { YYENOMEM = -2 };
 #define YYACCEPT        goto yyacceptlab
 #define YYABORT         goto yyabortlab
 #define YYERROR         goto yyerrorlab
+#define YYNOMEM         goto yyexhaustedlab
 
 
 #define YYRECOVERING()  (!!yyerrstatus)
@@ -759,10 +775,7 @@ do {                                            \
     YYFPRINTF Args;                             \
 } while (0)
 
-/* This macro is provided for backward compatibility. */
-# ifndef YY_LOCATION_PRINT
-#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
-# endif
+
 
 
 # define YY_SYMBOL_PRINT(Title, Kind, Value, Location)                    \
@@ -786,15 +799,11 @@ yy_symbol_value_print (FILE *yyo,
                        yysymbol_kind_t yykind, YYSTYPE const * const yyvaluep)
 {
   FILE *yyoutput = yyo;
-  YYUSE (yyoutput);
+  YY_USE (yyoutput);
   if (!yyvaluep)
     return;
-# ifdef YYPRINT
-  if (yykind < YYNTOKENS)
-    YYPRINT (yyo, yytoknum[yykind], *yyvaluep);
-# endif
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  YYUSE (yykind);
+  YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
@@ -908,13 +917,13 @@ static void
 yydestruct (const char *yymsg,
             yysymbol_kind_t yykind, YYSTYPE *yyvaluep)
 {
-  YYUSE (yyvaluep);
+  YY_USE (yyvaluep);
   if (!yymsg)
     yymsg = "Deleting";
   YY_SYMBOL_PRINT (yymsg, yykind, yyvaluep, yylocationp);
 
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  YYUSE (yykind);
+  YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
@@ -977,6 +986,7 @@ yyparse (void)
   YYDPRINTF ((stderr, "Starting parse\n"));
 
   yychar = YYEMPTY; /* Cause a token to be read.  */
+
   goto yysetstate;
 
 
@@ -1002,7 +1012,7 @@ yysetstate:
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
-    goto yyexhaustedlab;
+    YYNOMEM;
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
@@ -1030,7 +1040,7 @@ yysetstate:
 # else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
-        goto yyexhaustedlab;
+        YYNOMEM;
       yystacksize *= 2;
       if (YYMAXDEPTH < yystacksize)
         yystacksize = YYMAXDEPTH;
@@ -1041,7 +1051,7 @@ yysetstate:
           YY_CAST (union yyalloc *,
                    YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
         if (! yyptr)
-          goto yyexhaustedlab;
+          YYNOMEM;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
 #  undef YYSTACK_RELOCATE
@@ -1062,6 +1072,7 @@ yysetstate:
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
+
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -1175,45 +1186,54 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* $@1: %empty  */
-#line 41 "parser.y"
+#line 44 "parser.y"
         {
             root = new HouseNode();
         }
-#line 1183 "parser.tab.c"
+#line 1194 "parser.tab.c"
     break;
 
   case 7: /* $@2: %empty  */
-#line 62 "parser.y"
+#line 65 "parser.y"
         {
             FloorNode* f = new FloorNode();
             f->height = (yyvsp[-1].ival);
             root->floors.push_back(unique_ptr<FloorNode>(f));
             currentFloor = f;
         }
-#line 1194 "parser.tab.c"
+#line 1205 "parser.tab.c"
     break;
 
-  case 12: /* $@3: %empty  */
-#line 86 "parser.y"
+  case 9: /* color_opt: COLOR '=' COLOR_VALUE ';'  */
+#line 81 "parser.y"
+    {
+        currentFloor->color = (yyvsp[-1].sval);
+        free((yyvsp[-1].sval));
+    }
+#line 1214 "parser.tab.c"
+    break;
+
+  case 14: /* $@3: %empty  */
+#line 101 "parser.y"
         {
             RoomNode* r = new RoomNode();
             currentFloor->rooms.push_back(unique_ptr<RoomNode>(r));
             currentRoom = r;
         }
-#line 1204 "parser.tab.c"
+#line 1224 "parser.tab.c"
     break;
 
-  case 13: /* $@4: %empty  */
-#line 92 "parser.y"
+  case 15: /* $@4: %empty  */
+#line 107 "parser.y"
         {
             currentRoom->position = *(PositionNode*)(yyvsp[-1].node);
             delete (PositionNode*)(yyvsp[-1].node);
         }
-#line 1213 "parser.tab.c"
+#line 1233 "parser.tab.c"
     break;
 
-  case 15: /* position: POSITION '=' coord_pair ',' coord_pair  */
-#line 105 "parser.y"
+  case 17: /* position: POSITION '=' coord_pair ',' coord_pair  */
+#line 120 "parser.y"
     {
         PositionNode* p = new PositionNode();
         p->a = *(Coord*)(yyvsp[-2].node);
@@ -1222,68 +1242,68 @@ yyreduce:
         delete (Coord*)(yyvsp[0].node);
         (yyval.node) = p;
     }
-#line 1226 "parser.tab.c"
+#line 1246 "parser.tab.c"
     break;
 
-  case 16: /* coord_pair: '(' NUMBER ',' NUMBER ')'  */
-#line 117 "parser.y"
+  case 18: /* coord_pair: '(' NUMBER ',' NUMBER ')'  */
+#line 132 "parser.y"
     {
         Coord* c = new Coord();
         c->x = (yyvsp[-3].ival);
         c->y = (yyvsp[-1].ival);
         (yyval.node) = c;
     }
-#line 1237 "parser.tab.c"
+#line 1257 "parser.tab.c"
     break;
 
-  case 20: /* door: '{' wall ';' '}'  */
-#line 138 "parser.y"
+  case 22: /* door: '{' wall ';' '}'  */
+#line 153 "parser.y"
     {
         DoorNode* d = new DoorNode();
         d->wall = make_unique<WallNode>();
         d->wall->value = last_wall;
         currentRoom->doors.push_back(unique_ptr<DoorNode>(d));
     }
-#line 1248 "parser.tab.c"
+#line 1268 "parser.tab.c"
     break;
 
-  case 26: /* window: '{' wall ';' '}'  */
-#line 164 "parser.y"
+  case 28: /* window: '{' wall ';' '}'  */
+#line 179 "parser.y"
     {
         WindowNode* w = new WindowNode();
         w->wall = make_unique<WallNode>();
         w->wall->value = last_wall;
         currentRoom->windows.push_back(unique_ptr<WindowNode>(w));
     }
-#line 1259 "parser.tab.c"
+#line 1279 "parser.tab.c"
     break;
 
-  case 28: /* wall_values: FRONT  */
-#line 179 "parser.y"
+  case 30: /* wall_values: FRONT  */
+#line 194 "parser.y"
            { last_wall = "FRONT"; }
-#line 1265 "parser.tab.c"
+#line 1285 "parser.tab.c"
     break;
 
-  case 29: /* wall_values: BACK  */
-#line 180 "parser.y"
+  case 31: /* wall_values: BACK  */
+#line 195 "parser.y"
            { last_wall = "BACK"; }
-#line 1271 "parser.tab.c"
+#line 1291 "parser.tab.c"
     break;
 
-  case 30: /* wall_values: LEFT  */
-#line 181 "parser.y"
+  case 32: /* wall_values: LEFT  */
+#line 196 "parser.y"
            { last_wall = "LEFT"; }
-#line 1277 "parser.tab.c"
+#line 1297 "parser.tab.c"
     break;
 
-  case 31: /* wall_values: RIGHT  */
-#line 182 "parser.y"
+  case 33: /* wall_values: RIGHT  */
+#line 197 "parser.y"
            { last_wall = "RIGHT"; }
-#line 1283 "parser.tab.c"
+#line 1303 "parser.tab.c"
     break;
 
-  case 32: /* stair_opt: STAIR '{' position ';' direction ';' '}'  */
-#line 189 "parser.y"
+  case 34: /* stair_opt: STAIR '{' position ';' direction ';' '}'  */
+#line 204 "parser.y"
     {
         StairNode* s = new StairNode();
         s->position = *(PositionNode*)(yyvsp[-4].node);
@@ -1292,35 +1312,35 @@ yyreduce:
         s->direction = last_direction;
         currentFloor->stair = unique_ptr<StairNode>(s);
     }
-#line 1296 "parser.tab.c"
+#line 1316 "parser.tab.c"
     break;
 
-  case 34: /* direction: DIRECTION '=' LEFT_RIGHT  */
-#line 201 "parser.y"
+  case 36: /* direction: DIRECTION '=' LEFT_RIGHT  */
+#line 216 "parser.y"
                                { last_direction = "LEFT_RIGHT"; }
-#line 1302 "parser.tab.c"
+#line 1322 "parser.tab.c"
     break;
 
-  case 35: /* direction: DIRECTION '=' FRONT_BACK  */
-#line 202 "parser.y"
+  case 37: /* direction: DIRECTION '=' FRONT_BACK  */
+#line 217 "parser.y"
                               { last_direction = "FRONT_BACK"; }
-#line 1308 "parser.tab.c"
+#line 1328 "parser.tab.c"
     break;
 
-  case 36: /* direction: DIRECTION '=' RIGHT_LEFT  */
-#line 203 "parser.y"
+  case 38: /* direction: DIRECTION '=' RIGHT_LEFT  */
+#line 218 "parser.y"
                               { last_direction = "RIGHT_LEFT"; }
-#line 1314 "parser.tab.c"
+#line 1334 "parser.tab.c"
     break;
 
-  case 37: /* direction: DIRECTION '=' BACK_FRONT  */
-#line 204 "parser.y"
+  case 39: /* direction: DIRECTION '=' BACK_FRONT  */
+#line 219 "parser.y"
                               { last_direction = "BACK_FRONT"; }
-#line 1320 "parser.tab.c"
+#line 1340 "parser.tab.c"
     break;
 
 
-#line 1324 "parser.tab.c"
+#line 1344 "parser.tab.c"
 
       default: break;
     }
@@ -1402,6 +1422,7 @@ yyerrorlab:
      label yyerrorlab therefore never appears in user code.  */
   if (0)
     YYERROR;
+  ++yynerrs;
 
   /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
@@ -1462,7 +1483,7 @@ yyerrlab1:
 `-------------------------------------*/
 yyacceptlab:
   yyresult = 0;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
 /*-----------------------------------.
@@ -1470,24 +1491,22 @@ yyacceptlab:
 `-----------------------------------*/
 yyabortlab:
   yyresult = 1;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
-#if !defined yyoverflow
-/*-------------------------------------------------.
-| yyexhaustedlab -- memory exhaustion comes here.  |
-`-------------------------------------------------*/
+/*-----------------------------------------------------------.
+| yyexhaustedlab -- YYNOMEM (memory exhaustion) comes here.  |
+`-----------------------------------------------------------*/
 yyexhaustedlab:
   yyerror (YY_("memory exhausted"));
   yyresult = 2;
-  goto yyreturn;
-#endif
+  goto yyreturnlab;
 
 
-/*-------------------------------------------------------.
-| yyreturn -- parsing is finished, clean up and return.  |
-`-------------------------------------------------------*/
-yyreturn:
+/*----------------------------------------------------------.
+| yyreturnlab -- parsing is finished, clean up and return.  |
+`----------------------------------------------------------*/
+yyreturnlab:
   if (yychar != YYEMPTY)
     {
       /* Make sure we have latest lookahead translation.  See comments at
@@ -1514,5 +1533,5 @@ yyreturn:
   return yyresult;
 }
 
-#line 207 "parser.y"
+#line 222 "parser.y"
 
