@@ -28,25 +28,37 @@ function App() {
     }
   }
 
+  const floorCount = houseData?.FLOORS.length ?? 0
+  const successText = !error && houseData
+    ? `Compiled successfully: ${floorCount} ${floorCount === 1 ? 'floor' : 'floors'}.`
+    : null
+
   return (
-    <main className={`app-shell ${isSceneExpanded ? 'scene-expanded' : ''}`}>
-      {!isSceneExpanded ? (
-        <HouseInputPanel
-          inputText={inputText}
-          loading={loading}
-          error={error}
-          successText={!error && houseData ? `Rendered ${houseData.FLOORS.length} floor(s) successfully.` : null}
-          onInputChange={setInputText}
-          onSubmit={onRenderHouse}
+    <div className="page">
+      <header className="topbar">
+        <h1>House Modeler</h1>
+        <span className="topbar-note">Theory of Computation project</span>
+      </header>
+
+      <main className={`app-shell ${isSceneExpanded ? 'scene-expanded' : ''}`}>
+        {!isSceneExpanded ? (
+          <HouseInputPanel
+            inputText={inputText}
+            loading={loading}
+            error={error}
+            successText={successText}
+            onInputChange={setInputText}
+            onSubmit={onRenderHouse}
+          />
+        ) : null}
+        <HouseViewport
+          houseData={houseData}
+          hasError={Boolean(error)}
+          isExpanded={isSceneExpanded}
+          onToggleExpanded={() => setIsSceneExpanded((value) => !value)}
         />
-      ) : null}
-      <HouseViewport
-        houseData={houseData}
-        hasError={Boolean(error)}
-        isExpanded={isSceneExpanded}
-        onToggleExpanded={() => setIsSceneExpanded((value) => !value)}
-      />
-    </main>
+      </main>
+    </div>
   )
 }
 
